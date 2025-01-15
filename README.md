@@ -61,7 +61,7 @@ After training the model:
 
 ### Prediction and Results
 
-For any input DICOM image, the model outputs the predicted subcategories along with the probabilities. The image is displayed, and the model predicts the class with the highest probability (excluding "any").
+For any input DICOM image, the model outputs the predicted subcategories along with the probabilities. The image is displayed, and the model predicts the class with the highest probability (excluding "any" - Any is well trained to capture hemorrage it is always 100%, otherwise 0% for Normal- This shows how much the model learned well).
 
 ## Conclusion
 
