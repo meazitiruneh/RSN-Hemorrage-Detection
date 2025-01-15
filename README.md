@@ -67,7 +67,7 @@ For any input DICOM image, the model outputs the predicted subcategories along w
 
 The model demonstrates high performance in detecting various types of intracranial hemorrhages from CT scans. The use of a balanced dataset, efficient architecture, and multi-label classification methods contribute to its success in this challenging medical imaging task.
 
-## Requirements
+## Key Requirements among many - Others are simple module that will be installed with those.
 
 - PyTorch
 - torchvision
