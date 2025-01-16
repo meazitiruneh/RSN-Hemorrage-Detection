@@ -63,8 +63,80 @@ After training the model:
 
 For any input DICOM image, the model outputs the predicted subcategories along with the probabilities. The image is displayed, and the model predicts the class with the highest probability (excluding "any" - Any is well trained to capture hemorrage it is always 100%, otherwise 0% for Normal- This shows how much the model learned well).
 
+# At all:
+
+## Novelty in Our Approach
+
+### Multi-Label Classification
+- We use a **multi-label classification approach**, where the model predicts multiple possible hemorrhage types in a single image. This is particularly valuable for medical applications where multiple conditions may co-occur.
+- Our model detects six distinct labels: **epidural**, **intraparenchymal**, **intraventricular**, **subarachnoid**, **subdural**, and **any hemorrhage**. Each label is treated independently, allowing for simultaneous detection of multiple hemorrhage types.
+
+### Thresholding for Predictions
+- Probabilities outputted by the model's sigmoid activation are converted into binary predictions using a **threshold of 0.5**. This allows independent predictions for each hemorrhage type.
+
+### Data Preprocessing and Augmentation
+- The preprocessing pipeline includes essential transforms:
+  - **Resizing** to ensure uniform input dimensions.
+  - **Normalization** to standardize pixel intensity values.
+  - **Tensor conversion** for compatibility with PyTorch models.
+- To improve generalization, potential **data augmentation** techniques (e.g., rotations, flips) can be incorporated.
+
+---
+
+## State-of-the-Art Components
+
+### CNN Architecture (Custom coded - SimpleCNN)
+- The model leverages a **SimpleCNN** architecture with:
+  - Two convolutional layers for feature extraction.
+  - Fully connected layers for classification.
+
+### Model Optimization and Fine-Tuning
+- We employ:
+  - **Adam optimizer** for efficient gradient updates.
+  - **Learning rate scheduling** to enhance convergence during training.
+- Future improvements may include advanced optimization techniques such as **Cosine Annealing** or **learning rate warm-up**.
+
+### Model Saving and Checkpointing
+- The model saves checkpoints based on the **lowest validation loss**, ensuring the best version is preserved and preventing overfitting.
+
+### Evaluation Metrics
+- Performance is evaluated using:
+  - **Precision**
+  - **Recall**
+  - **F1 score**
+- These metrics are particularly suited for **imbalanced datasets** and multi-label classification tasks.
+
+---
+
+## Strengths of Our Approach
+
+### Efficiency
+- The implementation ensures:
+  - **Batch processing** via PyTorch's `DataLoader` for faster training.
+  - **GPU acceleration** (using `model.to(device)`), critical for handling large medical image datasets.
+
+### Comprehensive Evaluation
+- A robust evaluation process ensures the model is optimized across multiple metrics:
+  - Loss
+  - Accuracy
+  - Precision, Recall, F1 Score
+- This approach balances detection across all hemorrhage types.
+
+### Model Checkpointing
+- Saving the model with the lowest validation loss ensures robustness and minimizes overfitting, a state-of-the-art practice.
+
+### Confusion Matrix Visualization
+- The **confusion matrix** offers an in-depth view of:
+  - False positives and negatives.
+  - Class-wise performance.
+- This visualization helps fine-tune the model and identify areas for improvement.
+
+---
+
+
 ## Conclusion
 
+This project represents a strong foundation for medical image classification tasks, with a focus on multi-label detection, state-of-the-art practices, and comprehensive evaluation strategies.
 The model demonstrates high performance in detecting various types of intracranial hemorrhages from CT scans. The use of a balanced dataset, efficient architecture, and multi-label classification methods contribute to its success in this challenging medical imaging task.
 
 ## Key Requirements among many - Others are simple module that will be installed with those.
