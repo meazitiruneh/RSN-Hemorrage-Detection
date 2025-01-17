@@ -5,7 +5,7 @@ This project aims to develop a model capable of detecting various types of intra
 ## Key Innovations and Novelty
 The project demonstrates a modern approach to multi-label classification for medical image analysis, specifically focused on the following aspects:
 
-- **Balanced Sampling**: We address the class imbalance problem inherent in medical datasets by ensuring equal sampling from each hemorrhage subcategory. This ensures that the model does not become biased toward the more frequent classes.
+- **Balanced Sampling**: The class imbalance problem inherent in medical datasets is addressed by ensuring equal sampling from each hemorrhage subcategory. This ensures that the model does not become biased toward the more frequent classes.
   
 - **Custom Dataset Class**: A custom `RSNADataset` class is implemented to handle DICOM images efficiently. The dataset class takes care of both image loading and label extraction, with robust handling of multi-label classification.
 
@@ -15,7 +15,7 @@ The project demonstrates a modern approach to multi-label classification for med
 
 - **Model Architecture**: A lightweight CNN architecture is implemented, featuring two convolutional layers followed by fully connected layers. This architecture is efficient yet effective for the task of hemorrhage classification.
 
-- **Evaluation Metrics**: We evaluate the model performance using accuracy, precision, recall, F1-score, and confusion matrix to understand both overall and per-class performance.
+- **Evaluation Metrics**: The model performance is evaluated using accuracy, precision, recall, F1-score, and confusion matrix to understand both overall and per-class performance.
 
 - **Training with Validation**: The model is trained on 80% of the data with validation on 10% of the data. The best-performing model is saved for further evaluation on the test dataset.
 
@@ -25,7 +25,7 @@ The project demonstrates a modern approach to multi-label classification for med
 
 ### Data Preprocessing and Augmentation
 
-- **Balanced Sampling**: We implement a method for equal sampling from each hemorrhage subcategory. This ensures the model doesn't suffer from class imbalance, which is common in medical image datasets.
+- **Balanced Sampling**: a method for equal sampling from each hemorrhage subcategory is implemented. This ensures the model doesn't suffer from class imbalance, which is common in medical image datasets.
   
 - **Custom Dataset**: A PyTorch Dataset class is defined to handle image loading and label extraction efficiently. This class reads the DICOM images, converts them to a 3-channel RGB format, and applies the necessary transformations.
 
@@ -56,7 +56,7 @@ The training process involves:
 
 After training the model:
 
-- We evaluate the performance on the test set using accuracy, precision, recall, and F1-score, as well as the confusion matrix to analyze the model's performance in predicting each hemorrhage subcategory.
+- We evaluate the performance on the test set using accuracy, precision, recall, and F1-score, as well as the confusion matrix to analyze the model's performance in predicting each hemorrhage subcategory was evaluated.
 - A detailed confusion matrix and classification report are provided for each subcategory.
 
 ### Prediction and Results
@@ -68,7 +68,7 @@ For any input DICOM image, the model outputs the predicted subcategories along w
 ## Novelty in Our Approach
 
 ### Multi-Label Classification
-- We use a **multi-label classification approach**, where the model predicts multiple possible hemorrhage types in a single image. This is particularly valuable for medical applications where multiple conditions may co-occur.
+- a **multi-label classification approach** was used, where the model predicts multiple possible hemorrhage types in a single image. This is particularly valuable for medical applications where multiple conditions may co-occur.
 - Our model detects six distinct labels: **epidural**, **intraparenchymal**, **intraventricular**, **subarachnoid**, **subdural**, and **any hemorrhage**. Each label is treated independently, allowing for simultaneous detection of multiple hemorrhage types.
 
 ### Thresholding for Predictions
@@ -91,7 +91,7 @@ For any input DICOM image, the model outputs the predicted subcategories along w
   - Fully connected layers for classification.
 
 ### Model Optimization and Fine-Tuning
-- We employ:
+- I employ:
   - **Adam optimizer** for efficient gradient updates.
   - **Learning rate scheduling** to enhance convergence during training.
 - Future improvements may include advanced optimization techniques such as **Cosine Annealing** or **learning rate warm-up**.
